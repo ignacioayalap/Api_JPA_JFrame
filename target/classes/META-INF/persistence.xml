@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+  <persistence-unit name="SisReservaDBMS" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
+    <!-- Declaración explícita de todas las entidades del modelo -->
+    <class>modelo.Persona</class>
+    <class>modelo.Usuario</class>
+    <class>modelo.Piloto</class>
+    <class>modelo.Aerolinea</class>
+    <class>modelo.Aeropuerto</class>
+    <class>modelo.Asiento</class>
+    <class>modelo.Avion</class>
+    <class>modelo.Ciudad</class>
+    <class>modelo.Consulta</class>
+    <class>modelo.Fecha</class>
+    <class>modelo.Pago</class>
+    <class>modelo.Reserva</class>
+    <class>modelo.Tarifa</class>
+    <class>modelo.Tarjeta</class>
+    <class>modelo.Vuelo</class>
+
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+
+    <properties>
+      <!-- Cambia 'sis_reserva_db' por el nombre real de tu base de datos -->
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/reservaJPASql?serverTimezone=UTC"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+
+      <!-- Crear tablas si no existen -->
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+      <property name="eclipselink.ddl-generation" value="create-or-extend-tables"/>
+      <property name="eclipselink.logging.level" value="FINE"/>
+    </properties>
+  </persistence-unit>
+</persistence>
